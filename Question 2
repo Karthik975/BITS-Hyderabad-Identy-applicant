@@ -1,0 +1,14 @@
+import numpy as np
+
+why = np.random.randint(2000,size=(5, 4))
+
+print(why)
+
+for i in range(0,len(why)):
+  for j in range(0,len(why[i])):
+    if(why[i][j]>50):
+      why[i][j] = 100
+    else:
+      continue
+      
+print(why)  
