@@ -1,0 +1,29 @@
+from PIL import Image 
+import path,os
+
+test = input()
+filename = test
+with Image.open(filename) as image: 
+    width, height = image.size 
+img = Image.open(test).convert('LA')
+img.save('greyscale.png')
+
+def main(): 
+    try: 
+        #Relative Path 
+        img = Image.open(test) 
+        width, height = img.size 
+        img2 = Image.open("greyscale.png")   
+        area = (0, 0, width/2, height) 
+        img = img.crop(area) 
+        area2 = (width/2,0,width,height)  
+        img2 = img2.crop(area2) 
+        #Saved in the same relative location 
+        img.paste(img2, (0, 100)) 
+        img.save(test)  
+          
+    except IOError: 
+        pass
+  
+if __name__ == "__main__": 
+    main() 
